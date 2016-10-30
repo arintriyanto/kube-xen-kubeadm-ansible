@@ -15,7 +15,7 @@ vi hosts.ini
 
 `ansible all -i hosts.ini -u root -m raw -a "apt-get install -y python2.7 python-simplejson"``
 
-## Install the Docker and Kubernetes Dependancies.
+## Install Docker and Kubernetes dependencies.
 
 `ansible-playbook -i hosts.ini setup.yml`
 
@@ -39,10 +39,10 @@ curl -s https://raw.githubusercontent.com/tigera/canal/master/k8s-install/kubead
 kubectl --kubeconfig /etc/kubernetes/admin.conf create -f canal.yaml
 ```
 
-## Join the nodes.
+## Join the nodes to the Master.
 
 `ansible-playbook -i hosts.ini nodes.yml`
 
-## Watch them join.
+## Watch them join from the Master.
 
 `kubectl --kubeconfig /etc/kubernetes/admin.conf get pods --all-namespaces`
