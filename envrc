@@ -1,0 +1,2 @@
+export KUBE_MASTER_IP="ip.goes.he.re"
+export KUBE_TOKEN="token-goes-here"

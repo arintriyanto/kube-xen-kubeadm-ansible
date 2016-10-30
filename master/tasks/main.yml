@@ -1,0 +1,6 @@
+---
+  - name: Initialize Kubernetes
+    command: kubeadm init
+    register: init_output
+
+  - debug: msg="{{ init_output.stdout }}"

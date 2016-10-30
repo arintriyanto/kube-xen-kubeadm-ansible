@@ -1,0 +1,8 @@
+- hosts: kube
+  user: root
+  gather_facts: False
+  roles:
+    - nodes
+  vars:
+    master_ip: "{{ lookup('env','KUBE_MASTER_IP') }}"
+    kube_token: "{{ lookup('env','KUBE_TOKEN') }}"

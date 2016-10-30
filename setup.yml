@@ -1,0 +1,7 @@
+- hosts:
+    - kube
+    - kube-master
+  user: root
+  gather_facts: False
+  roles:
+    - setup

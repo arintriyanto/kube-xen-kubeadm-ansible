@@ -1,0 +1,24 @@
+---
+  - name: Install Docker
+    apt: name=docker.io state=present
+
+  - name: Install Kubernetes Apt Key
+    apt_key: url=https://packages.cloud.google.com/apt/doc/apt-key.gpg state=present
+
+  - name: Install apt-transport-https
+    apt: name=apt-transport-https state=present
+
+  - name: Install Kubernetes Apt Repo
+    apt_repository: repo='deb http://apt.kubernetes.io/ kubernetes-xenial main' state=present filename='kubernetes' update_cache=yes
+
+  - name: apt-get update
+    apt:
+      update_cache: yes
+
+  - name: Install Kubernetes
+    action: apt pkg={{item}} state=present
+    with_items:
+      - kubelet
+      - kubeadm
+      - kubectl
+      - kubernetes-cni
